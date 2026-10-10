@@ -79,7 +79,7 @@ router.post("/chat", async(req, res) => {
             res.status(400).json({error:"Missing required fields"});
         }
 
-        const thread = await Thread.findOne({threadId});
+        let thread = await Thread.findOne({threadId});
         if(!thread){
             //Create a new Thread in DB
             thread = new Thread({
